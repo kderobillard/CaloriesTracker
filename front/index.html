@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calories Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+    <h1>Calories Tracker</h1>
+
+    <h2>Add food</h2>
+    <form id="food-form">
+        <div class="flex gap-2 mb-2">
+            <input type="text" id="name" placeholder="Name" required class="mb-2 p-2 border rounded">
+            <input type="number" id="calories" placeholder="Calories/100g" required class="mb-2 p-2 border rounded">
+            <input type="number" id="protein" placeholder="Protein/100g" required class="mb-2 p-2 border rounded">
+            <input type="number" id="carbs" placeholder="Carbs/100g" required class="mb-2 p-2 border rounded">
+            <input type="number" id="fat" placeholder="Fat/100g" required class="mb-2 p-2 border rounded">
+            <input type="number" id="quantity" placeholder="Quantity (g)" required class="mb-2 p-2 border rounded">
+        </div>
+        <button type="submit" class="bg-green-700 hover:bg-green-900 text-white sm:text-2xl p-2 w-32 rounded">Add</button>
+    </form>
+
+    <h2>Daily total</h2>
+    <button id="get-summary"> See your daily total </button>
+    <div id="summary" class="mt-4 p-4 bg-white rounded shadow"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
