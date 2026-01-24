@@ -13,5 +13,4 @@ def search_food(query: str, page_size: int = 5):
 
     response = requests.get(BASE_URL, params=params)
     response.raise_for_status()
-
     return response.json()

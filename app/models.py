@@ -11,5 +11,5 @@ class FoodEntry(Base):
     protein = Column(Float)
     carbs = Column(Float)
     fat = Column(Float)
-    quantity = Column(Float)  # en grammes
+    quantity = Column(Float) 
     date = Column(Date, default=date.today)

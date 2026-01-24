@@ -39,7 +39,6 @@ def daily_summary(db: Session = Depends(get_db), summary_date: date = Query(defa
         func.sum(models.FoodEntry.carbs),
         func.sum(models.FoodEntry.fat)
     ).filter(models.FoodEntry.date == summary_date).first()
-
     return {
         "date": summary_date,
         "total_calories": totals[0] or 0,
@@ -47,3 +46,27 @@ def daily_summary(db: Session = Depends(get_db), summary_date: date = Query(defa
         "total_carbs": totals[2] or 0,
         "total_fat": totals[3] or 0
     }
+
+@router.delete("/clear-summary")
+def clear_today(db: Session = Depends(get_db)):
+    today = date.today()
+    db.query(models.FoodEntry)\
+      .filter(models.FoodEntry.date == today)\
+      .delete()
+    db.commit()
+    return {"message": "Today's entries cleared"}
+
+@router.delete("/{food_id}")
+def delete_food(food_id: int, db: Session = Depends(get_db)):
+    food = db.query(models.FoodEntry).filter(models.FoodEntry.id == food_id).first()
+    if not food:
+        return {"error": "Food not found"}
+    db.delete(food)
+    db.commit()
+    return {"message": "Food deleted"}
+
+@router.get("/")
+def get_today_food(db: Session = Depends(get_db)):
+    today = date.today()
+    foods = db.query(models.FoodEntry).filter(models.FoodEntry.date == today).all()
+    return foods
