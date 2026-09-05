@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calories Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen font-sans text-gray-800">
+
+    <section class="bg-green-700 text-white py-8 shadow-md">
+        <h1 class="text-4xl font-bold text-center">Calories Tracker</h1>
+    </section>
+
+    <main class="max-w-4xl mx-auto p-6">
+
+        <section class="bg-white p-6 rounded shadow mb-6">
+            <h2 class="text-2xl font-semibold mb-4">Add Food</h2>
+            <form id="food-form" class="flex flex-wrap gap-2">
+                <input type="text" id="name" placeholder="Name" required
+                    class="flex-1 p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500">
+                <input type="number" id="calories" placeholder="Calories/100g" required
+                    class="flex-1 p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500">
+                <input type="number" id="protein" placeholder="Protein/100g" required
+                    class="flex-1 p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500">
+                <input type="number" id="carbs" placeholder="Carbs/100g" required
+                    class="flex-1 p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500">
+                <input type="number" id="fat" placeholder="Fat/100g" required
+                    class="flex-1 p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500">
+                <input type="number" id="quantity" placeholder="Quantity (g)" required
+                    class="flex-1 p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500">
+                <button type="submit"
+                    class="bg-green-700 hover:bg-green-900 text-white text-lg sm:text-xl px-6 py-2 rounded transition-all duration-200">
+                    Add
+                </button>
+            </form>
+        </section>
+
+        <section class="bg-white p-6 rounded shadow mb-6">
+            <h2 class="text-2xl font-semibold mb-4">Daily food</h2>
+            <div id="foods-list" class="space-y-2"></div>
+        </section>
+
+        <section class="bg-white p-6 rounded shadow">
+            <h2 class="text-2xl font-semibold mb-4">Daily Total</h2>
+            <div class="flex gap-4 mb-4">
+                <button id="get-summary"
+                    class="bg-blue-600 hover:bg-blue-800 text-white px-4 py-2 rounded transition-colors duration-200">
+                    See your daily total
+                </button>
+                <button id="clear-summary"
+                    class="bg-red-600 hover:bg-red-800 text-white px-4 py-2 rounded transition-colors duration-200">
+                    Clear daily total
+                </button>
+            </div>
+            <div id="summary" class="p-4 bg-gray-100 rounded shadow"></div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+    
+</body>
+
+</html>
